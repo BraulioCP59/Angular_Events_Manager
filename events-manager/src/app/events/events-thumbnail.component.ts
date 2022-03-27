@@ -25,7 +25,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
     styles: [`
         .green {color: #003300 !important;}
         .bold {font-weight: bold}
-        .thumbnail {min-height: 210px;}
+        .thumbnail {min-height: 240px;}
         .pad-left {margin-left:10px;}
         .well div {color: #bbb}
     `]
