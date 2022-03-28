@@ -6,7 +6,8 @@ import { EventService } from "./shared/event.service";
 declare let toastr:any
 
 @Component({
-    selector: 'events-list',
+    //no selector needed for this becuase it is not a child component, this is a page
+    //will be loaded directly using the url below by the router
     template: `
         <div>
             <h1> Upcoming Angular Events </h1>
