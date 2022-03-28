@@ -1,5 +1,6 @@
 import { ThisReceiver } from "@angular/compiler";
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "../common/toastr.service";
 import { EventService } from "./shared/event.service";
 
@@ -22,15 +23,21 @@ declare let toastr:any
 })
 export class EventsListComponent implements OnInit
 {
-  events:any[] = []
+  events:any
 
-  constructor(private eventService: EventService, private toastrService: ToastrService)
+  constructor(private eventService: EventService, private toastrService: ToastrService, private route: ActivatedRoute)
   {
   }
   
   ngOnInit()
   {
-    this.events = this.eventService.getEvents();
+    this.events = this.route.snapshot.data['events'];
+
+    // we no longer need to do this becuase the data is now added to the route
+    //via the events-list-resolver
+    // this.eventService.getEvents().subscribe(events => {
+    //   this.events = events;
+    // })
   }
 
   handleThumbnailClick(eventName:string)

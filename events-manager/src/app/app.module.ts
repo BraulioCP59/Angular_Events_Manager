@@ -8,6 +8,7 @@ import { EventsAppComponent } from './events-app.component';
 import { CreateEventsComponent } from './events/create-events.component';
 import { EventDetails } from './events/event-details/event-details.component';
 import { EventRouteActivator } from './events/event-details/event-route-activator';
+import { EventListResolver } from './events/events-list-resolver.service';
 import { EventsListComponent } from './events/events-list.component';
 import {EventThumbnail} from './events/events-thumbnail.component'
 import { EventService } from './events/shared/event.service';
@@ -32,7 +33,8 @@ import { appRoutes } from './routes';
     EventService,
     ToastrService,
     EventRouteActivator,
-    {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
+    {provide: 'canDeactivateCreateEvent', useValue: checkDirtyState},
+    EventListResolver,
   ],
   bootstrap: [
     EventsAppComponent,

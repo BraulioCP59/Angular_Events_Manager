@@ -1,11 +1,18 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class EventService
 {
     getEvents()
     {
-         return EVENTS; 
+      let subject = new Subject()
+      setTimeout(() => {
+        subject.next(EVENTS);
+        subject.complete();
+      }, 100)
+
+      return subject; //this returns the observable, need to update its consumer to subscribe to this stream
     }
 
     getEvent(id:number)
