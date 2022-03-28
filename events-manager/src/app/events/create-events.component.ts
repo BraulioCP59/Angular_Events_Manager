@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 
+
 @Component({
     template: `
         <h1>New Event </h1>
@@ -16,6 +17,8 @@ import { Router } from "@angular/router";
 })
 export class CreateEventsComponent
 {
+    isDirty: Boolean = true
+
     constructor(private router: Router)
     {
 
@@ -26,4 +29,5 @@ export class CreateEventsComponent
         //navigates back to the home page when canceling a create event form
         this.router.navigate(['/events']);
     }
+
 }
