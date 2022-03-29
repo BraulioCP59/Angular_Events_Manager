@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { EventService } from "../shared/event.service";
 import { ActivatedRoute } from "@angular/router";
+import { IEvent } from "../shared/index";
 
 @Component({
     //no selector needed for this becuase it is not a child component, this is a page
@@ -13,7 +14,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class EventDetails
 {
-    event:any
+    event:IEvent = {} as IEvent
 
     constructor(private eventService: EventService, private route: ActivatedRoute)
     {
