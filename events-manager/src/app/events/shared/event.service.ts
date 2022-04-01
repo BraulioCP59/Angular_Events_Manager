@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
+import { EventsAppComponent } from "src/app/events-app.component";
 import { IEvent } from "./event.model";
 
 @Injectable()
@@ -19,6 +20,13 @@ export class EventService
     getEvent(id:number):IEvent
     {
       return EVENTS.find(event => event.id === id)!;
+    }
+
+    saveEvent(event:any)
+    {
+      event.id = 999;
+      event.session = [];
+      EVENTS.push(event);
     }
 }
 
