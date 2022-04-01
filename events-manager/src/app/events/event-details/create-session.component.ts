@@ -1,13 +1,15 @@
 import { convertPropertyBindingBuiltins } from "@angular/compiler/src/compiler_util/expression_converter";
-import { Component, OnInit} from "@angular/core";
+import { Component, EventEmitter, OnInit, Output} from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ISession } from "../shared";
 
 @Component({
+    selector: 'create-session',
     templateUrl: './create-session.component.html',
 })
 export class CreateSessionComponent implements OnInit
 {
+    @Output() saveNewSession = new EventEmitter()
     newSessionForm!: FormGroup 
     name!: FormControl
     presenter!: FormControl
@@ -59,5 +61,7 @@ export class CreateSessionComponent implements OnInit
             voters:[],
         }
         console.log(session);
+        //emits the session data as a event for the event details parent component to bind to
+        this.saveNewSession.emit(session);
     }
 }
