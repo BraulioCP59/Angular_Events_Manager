@@ -42,4 +42,9 @@ export class EventDetails
         this.addMode = false;
     }
 
+    cancelAddSession()
+    {
+        this.addMode = false;
+    }
+
 }
